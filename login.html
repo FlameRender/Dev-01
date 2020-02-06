@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Login page</title>
+</head>
+<body>
+ <div id="login">
+    Username: <input type="text" name="uname"/><br />
+    Password: <input type="password" name="password"/>
+    <button type="button" onClick="processClick()">Change Content</button>
+ </div>
+<script>
+ function processClick() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+        document.getElementByID("login").innerHTML = this.responseText;
+    }
+    
+    };
+    // here i need to get the form data and encode into post ajax request - change get to post w3 schools ajax - post requests
+    xhttp.open("GET", "cgi-bin/new.cgi", true);
+    xhttp.send();
+
+
+    }
+
+</script>
+
+</body>
+</html>
